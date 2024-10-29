@@ -1,0 +1,38 @@
+---
+title: Analytics and Reporting
+description: Hexus Analytics, accessible from the left-hand sidebar of your Hexus account, provides you with a comprehensive overview of your demos' performance and user engagement.
+icon: "chart-simple"
+iconType: "solid"
+---
+
+<Tip>
+**Hexus Tip:**
+    1. More focused demos tend to resonate best. We usually suggest leading with a 10-15 step "Quick Tour" that spotlights your core value proposition. You can always supplement this with modular deep dives into specific capabilities.
+    2. Sprinkling in CTAs at strategic points—generally around steps 5, 10 and 15—can significantly lift conversion rates.
+    3. Tailor the initial experience to first-time visitors, educating them on your key differentiators. Power users can self-select into more advanced feature walkthroughs.
+</Tip>
+
+## Key Metrics
+
+1. **Views**: This metric represents the total number of times your demo has been viewed.
+2. **Unique Visitors**: The Unique Visitors metric indicates the number of distinct individuals who have viewed your demo.
+3. **Completion Rate**: This metric measures how engaging your demo is by showing the percentage of users who complete the entire demo.
+4. **Unique Visitors by Browser**: Hexus Analytics provides a breakdown of unique visitors based on the web browser they use.
+5. **Unique Visitors by OS**: Similar to the browser breakdown, Hexus Analytics also shows the distribution of unique visitors across different operating systems.
+
+<img height="800" width="400" src="/images/hexus-analytics-1.png" />
+<img height="800" width="400" src="/images/hexus-analytics-2.png" />
+
+## **What events can be propagated?**
+
+Most events that happen inside an Hexus can be propagated.  Contact us at [team@hexus.ai](mailto:team@hexus.ai) to enable the event propagation to your integrations. Here are some common events:
+
+- **`Flow Rendered`**: Triggered when a Hexus is initially viewed.
+- **`Hotspot Clicked`**: Triggered when a hotspot is clicked.
+- **`Flow Ended`**: Triggered after a video step has completed.
+- **`Flow Restarted`**: Triggered when a Hexus is replayed.
+- **`Percentage Completed`**: Percentage of the flow completed by the user
+- **`Step Reached`**: Triggered when the viewer navigates to a new step.
+- **`Overlay Clicked`**: Triggered when the viewer clicks on a button within a Page overlay.
+- **`External Url Clicked`**: Triggered when the viewer clicks on a URL within a hotspot or callout.
+- **`CTA Clicked`**: A convenience "meta-event" that combines the two events above (**`Overlay Clicked`**, **`External Url Clicked`**).
