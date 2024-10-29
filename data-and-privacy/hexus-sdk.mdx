@@ -1,0 +1,220 @@
+---
+title: Recording & Showing Hexus Demos in your App using SDK
+description: Incase, you’d like to use the SDK instead of the chrome extension, please follow the steps below.
+---
+
+<Note>
+    **Note:** Before you start recording your content, you need to install Hexus.js in your web app.
+</Note>
+
+Hexus.js is a tiny piece of JavaScript code, which is loaded asynchronously in your web app, so it won’t affect your page load speed.
+
+The installation is simple and only requires 3 quick steps:
+    1. Choose installation method
+    2. Install Hexus.js
+    3. Replace placeholders
+
+## Step 1: Choose installation method
+
+Hexus.js can be installed in one of 2 ways:
+
+- Browser apps using module bundlers (such as Webpack or Rollup)
+    - Go to Step 2A (npm installation)
+- Other browser apps and Google Tag Manager
+    - Go to Step 2B (HTML snippet installation)
+
+We also have specific instructions for special apps/tools:
+
+- Google Tag Manager
+- Electron apps via hexus-electron
+- GoHighLevel
+- Self-hosted (WIP)
+
+Example projects are available on the private GitHub link included in your license.
+
+## Step 2A. Private npm packages
+
+The Hexus private npm hosts the following packages.
+
+- `@hexus/hexus-capture`
+- `@hexus/hexus-search`
+
+Locale files are available in the package, but can also be imported from `@hexus/hexus/locale/<locale_code>`.
+
+### Installing private npm packages
+
+1. Create a new file in your project root folder and name it `.npmrc`.
+2. Copy the contents below to the file:
+    
+    ```
+    @hexus:registry=https://npm.hexus.ai/
+    //npm.hexus.ai/:_authToken=$HEXUS_NPM_TOKEN
+    ```
+    
+3. Replace `$HEXUS_NPM_TOKEN` with your private HEXUS npm token as shown on the customer portal under your license details.
+
+HEXUS scoped packages are now automatically installed from the HEXUS repository.
+
+Sometimes the package manager will stick to the test version, in that situation you can try the following before re-installing:
+
+1. Run `npm uninstall @hexus/hexus`.
+2. Remove the `node_modules` folder and `package-lock.json` file.
+3. Reinstall `@hexus/hexus`.
+
+## Step 2B: HTML snippet installation
+
+Only do this if you did not complete Step 2A.
+
+Copy-paste the following snippet into your HTML document before the ending `</body>` tag:
+
+```html
+<script>
+  !function(){var e="undefined"==typeof window?{}:window,r=e.hexus;if(!r){var t="https://api.hexus.ai",n=null;r=e.hexus={_stubbed:!0,load:function(){return n||(n=new Promise((function(r,o){var s=document.createElement("script");s.async=!0;var a=e.HEXUSJS_ENV_VARS||{};"es2020"===(a.HEXUSJS_BROWSER_TARGET||function(e){for(var r=[[/Edg\//,/Edg\/(\d+)/,80],[/OPR\//,/OPR\/(\d+)/,67],[/Chrome\//,/Chrome\/(\d+)/,80],[/CriOS\//,/CriOS\/(\d+)/,100],[/Safari\//,/Version\/(\d+)/,14],[/Firefox\//,/Firefox\/(\d+)/,74]],t=0;t<r.length;t++){var n=r[t],o=n[0],s=n[1],a=n[2];if(e.match(o)){var l=e.match(new RegExp(s));if(l&&parseInt(l[1],10)>=a)return"es2020";break}}return"legacy"}(navigator.userAgent))?(s.type="module",s.src=a.HEXUSJS_ES2020_URL||t+"es2020/hexus.js"):s.src=a.HEXUSJS_LEGACY_URL||t+"legacy/hexus.js",s.onload=function(){r()},s.onerror=function(){document.head.removeChild(s),n=null;var e=new Error("Could not load Hexus.js");console.error(e.message),o(e)},document.head.appendChild(s)}))),n}};var o=e.HEXUSJS_QUEUE=e.HEXUSJS_QUEUE||[],s=function(e){r[e]=function(){var t=Array.prototype.slice.call(arguments);r.load(),o.push([e,null,t])}},a=function(e){r[e]=function(){var t,n=Array.prototype.slice.call(arguments);r.load();var s=new Promise((function(e,r){t={resolve:e,reject:r}}));return o.push([e,t,n]),s}},l=function(e,t){r[e]=function(){return t}};s("_setTargetEnv"),s("closeResourceCenter"),s("disableEvalJs"),s("init"),s("off"),s("on"),s("prepareAudio"),s("registerCustomInput"),s("remount"),s("reset"),s("setBaseZIndex"),s("setCustomInputSelector"),s("setCustomNavigate"),s("setCustomScrollIntoView"),s("setInferenceAttributeFilter"),s("setInferenceAttributeNames"),s("setInferenceClassNameFilter"),s("setResourceCenterLauncherHidden"),s("setScrollPadding"),s("setServerEndpoint"),s("setShadowDomEnabled"),s("setPageTrackingDisabled"),s("setUrlFilter"),s("openResourceCenter"),s("toggleResourceCenter"),a("endAll"),a("endAllFlows"),a("endChecklist"),a("group"),a("identify"),a("identifyAnonymous"),a("start"),a("startFlow"),a("startWalk"),a("track"),a("updateGroup"),a("updateUser"),l("getResourceCenterState",null),l("isIdentified",!1)}}();
+
+  hexus.init('HEXUS_TOKEN');
+  hexus.identify('USER_ID', {
+    name: 'USER_NAME',
+    email: 'USER_EMAIL',
+    signed_up_at: 'USER_SIGNED_UP_AT'
+  });
+</script>
+```
+
+**Important:** Make sure to replace the placeholders with real, dynamic values from your app! 
+
+---
+
+### Integrating Hexus Capture in Your App React Example
+
+Other example projects are available on the private GitHub link included in your license.
+
+#### 1. Installation
+
+Ensure that you have installed the `@hexus/hexus` package.
+
+```bash
+npm install @hexus/hexus
+```
+
+#### 2. Integrating Hexus into Your Application
+
+Integrate Hexus into your application to utilize its demo creation capabilities.
+
+```jsx
+// hexusService.js
+import { Hexus } from '@hexus/hexus';
+
+export const initializeHexus = (config) => {
+    Hexus.init(config);
+};
+
+export const startDemoRecording = () => {
+    Hexus.startRecording();
+};
+
+export const stopDemoRecording = () => {
+    Hexus.stopRecording();
+};
+
+export const playDemo = (demoId) => {
+    Hexus.playDemo(demoId);
+};
+
+```
+
+#### 3. Example Usage in Your App
+
+Integrate the demo recording and playback functionality into your application.
+
+```jsx
+import React, { useEffect } from 'react';
+import { initializeHexus } from './hexusService';
+
+const App = () => {
+    useEffect(() => {
+        const config = {
+            apiKey: 'your-hexus-api-key', // Replace with your actual Hexus API key
+            // Additional configuration options
+        };
+        initializeHexus(config);
+    }, []);
+
+    return (
+        <div>
+            {/* Your application components */}
+        </div>
+    );
+};
+
+export default App;
+
+```
+
+#### 4. Capturing Click-Throughs
+
+You can also capture click-through events using Hexus by utilizing its built-in methods.
+
+```jsx
+import { captureClick } from '@hexus/hexus';
+
+// Example: capturing clicks on a button with id 'demo-button'
+document.getElementById('demo-button').addEventListener('click', () => {
+    captureClick('demo-button');
+});
+
+```
+
+This setup assumes that `@hexus/hexus` provides the necessary methods (`init`, `startRecording`, `stopRecording`, `playDemo`, and `captureClick`) to handle demo creation and click-through capturing. Adjust the implementation details as necessary based on the specific features and methods provided by the SDK.
+
+---
+
+## **Add CMD+K search and navigation in minutes**
+
+**Improve your self-serve UX by offering keyboard-enabled searching of Hexus content, demos navigation across pages, and shortcuts to powerful actions**
+
+*Other Example projects are available on the private GitHub link included in your license.*
+
+### Integrating Hexus Search in Your App React example
+
+#### 1. Installation
+
+First, ensure that you have installed the `@hexus/hexus-search` package as described previously.
+
+To display the recorded demos, you need to retrieve the saved data and render it in your application. Here’s an example using React:
+
+#### 2. Example Usage
+
+To use the search functionality and display component in your application, you can integrate it as follows:
+
+```jsx
+import React, { useState } from 'react';
+import SearchResults from '@hexus/hexus'; // Path to Hexus SearchResults component
+
+const App = () => {
+    const [query, setQuery] = useState('');
+
+    const handleSearch = () => {
+        recordSearchQuery(query);
+        setQuery('');
+    };
+
+    return (
+        <div>
+            <h1>Hexus Search App</h1>
+            <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Enter search query"
+            />
+            <button onClick={handleSearch}>Search</button>
+            <SearchResults />
+        </div>
+    );
+};
+
+export default App;
+
+```
+
+This is a basic example to get you started with recording and displaying search results using the `@hexus/hexus-search` package in your application. You can expand on this by adding more features and improving the user interface as needed, adding shortcuts etc.
