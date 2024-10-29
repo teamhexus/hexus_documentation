@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Hexus AI",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/Hexus_Logo_Colour.png",
+    "light": "/logo/hexus_logo_light.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/hexus_favicon.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -18,12 +18,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:sham@usehexus.com"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Use Hexus",
+    "url": "https://app.usehexus.com/"
   },
   "tabs": [
     {
@@ -52,9 +52,10 @@
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "getting-started/hexus_resource_hub",
+        "getting-started/editing-your-tour",
+        "getting-started/repurposing",
+        "getting-started/publishing-and-sharing"
       ]
     },
     {
