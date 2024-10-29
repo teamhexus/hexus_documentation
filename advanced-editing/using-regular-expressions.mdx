@@ -1,0 +1,110 @@
+---
+title: Using Regular Expressions
+description: Regular expressions, often abbreviated as regex or regexp, are sequences of characters that form search patterns. They are used for matching strings within text and are a powerful tool for searching, replacing, and manipulating text.
+---
+
+## Common Use Cases
+
+- **Searching**: Finding specific patterns in text.
+- **Replacing**: Substituting parts of text with new values.
+
+## Examples
+
+1. **Mask Credit Card Numbers**
+    - **Input Regex**:  `^\d{3,6}$`
+    - **Replacement**: `*** **** ****`
+    - **Example**:
+        - **Input**: `"Hi, here is my card number: visa 4242-4242-4242-4242"`
+        - **Output**: `"Hi, here is my card number: visa **** **** **** 4242"`
+2. **Replace an Email Address**
+    - **Regex**:  `\S+@\S+\.\S+`  or `\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b`
+    - **Replacement**: test@test.com
+    - **Example**:
+        - **Input**: `"Contact us at example@example.com"`
+        - **Output**: `"Contact us at test@test.com"`
+3. **Extract URLs from Text**
+    - **Regex**: `https?://[^\s]+`
+    - **Matches**:
+        - `http://example.com`
+        - `https://www.company.org/page`
+    - **Example**:
+        - **Input**: `"Check out our website at https://www.company.com and our blog at http://blog.company.com"`
+        - **Output**: `["https://www.company.com", "http://blog.company.com"]`
+4. **Find Phone Numbers in Various Formats**
+    - **Regex**: `\b\d{3}[-.\s]??\d{3}[-.\s]??\d{4}\b|\(\d{3}\)\s*\d{3}[-.\s]??\d{4}\b`
+    - **Matches**:
+        - `123-456-7890`
+        - `(123) 456-7890`
+        - `123.456.7890`
+    - **Example**:
+        - **Input**: `"You can reach us at 123-456-7890 or (123) 456-7890"`
+        - **Output**: `["123-456-7890", "(123) 456-7890"]`
+5. **Extract Dates from Text**
+    - **Regex**: `\b\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}\b`
+    - **Matches**:
+        - `12/31/2024`
+        - `31-12-2024`
+        - `2024.12.31`
+    - **Example**:
+        - **Input**: `"The event is scheduled for 12/31/2024 or 31-12-2024"`
+        - **Output**: `["12/31/2024", "31-12-2024"]`
+6. **Extract Prices from Text**
+    - **Regex**: `\$\d+(?:\.\d{2})?`
+    - **Matches**:
+        - `$19.99`
+        - `$100`
+    - **Example**:
+        - **Input**: `"The price of the product is $19.99 or you can buy it in bulk for $100"`
+        - **Output**: `["$19.99", "$100"]`
+7. **Match multiple keywords**
+    - **Regex**: `\b(marketing|sales|advertising|promotion)\b`
+    - **Matches**:
+        - `marketing`
+        - `sales`
+        - `advertising`
+        - `promotion`
+    - **Example**:
+        - **Input**: `"Our marketing and sales teams are collaborating on the new advertising campaign"`
+        - **Output**: `["marketing", "sales", "advertising"]`
+8. **Match a single digit**
+    - **Regex**: `\d`  [for matching multiple digits at once like 1234 use: `\d+`]
+    - **Replacement**: 100
+    - Example:
+        - **Input**: `"There are 3 apples"`
+        - Output: `"There are 100 apples"`
+9. **Find All Words Starting with 'a'**
+    - **Regex**: `\ba\w*`
+    - **Replacement**: mango
+    - **Matches**:
+        - **Input:** `"apple"`
+        - Output: `"mango"`
+
+## Basic Syntax
+
+- **Literal Characters**: These are the simplest form of regular expressions. For example, `cat` matches the string "cat".
+- **Metacharacters**: Special characters that have specific meanings:
+    - `.`: Matches any single character except newline.
+    - ``: Matches zero or more occurrences of the preceding element.
+    - `+`: Matches one or more occurrences of the preceding element.
+    - `?`: Matches zero or one occurrence of the preceding element.
+    - `^`: Matches the start of a string.
+    - `$`: Matches the end of a string.
+    - `[]`: Matches any one of the characters within the brackets.
+    - `|`: Acts as a logical OR between patterns.
+    - `\\`: Escapes a special character to be treated as a literal.
+
+## Advanced Tips
+
+- **Grouping and Capturing**: Use parentheses `()` to group parts of a regex and capture them for later use.
+    - **Example**: `(abc)+` matches one or more occurrences of the sequence "abc".
+- **Non-Capturing Groups**: Use `(?:...)` to group parts of a regex without capturing.
+    - **Example**: `(?:abc)+` matches one or more occurrences of "abc" but does not capture the group.
+- **Lookahead and Lookbehind**: These are assertions that match a group before or after a main pattern without including them in the result.
+    - **Lookahead**: `\\d(?=px)` matches digits followed by "px" but does not include "px" in the match.
+    - **Lookbehind**: `(?<=\\$)\\d+` matches digits preceded by "$" but does not include "$" in the match.
+
+## Conclusion
+
+Regular expressions are a versatile tool for text processing, offering powerful capabilities for searching, replacing, and validating text patterns. Mastering regex can greatly enhance your ability to handle and manipulate text efficiently.
+
+Contact us to learn more about Regex on [Google](https://www.google.com/search?q=regular+expression).
