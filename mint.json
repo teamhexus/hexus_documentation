@@ -27,8 +27,8 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "Guides",
+      "url": "guides"
     }
   ],
   "anchors": [
@@ -53,34 +53,46 @@
       "group": "Get Started",
       "pages": [
         "getting-started/hexus_resource_hub",
+        "getting-started/extension",
         "getting-started/editing-your-tour",
         "getting-started/repurposing",
         "getting-started/publishing-and-sharing"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Advanced Editing",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "advanced-editing/multi-flow-product-tour",
+        "advanced-editing/lead-capture-form",
+        "advanced-editing/personalization",
+        "advanced-editing/localization",
+        "advanced-editing/editing-page-copy",
+        "advanced-editing/demo-center",
+        "advanced-editing/refresh-beta"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Collaboration",
       "pages": [
-        "api-reference/introduction"
+        "collaboration/analytics-and-reporting",
+        "collaboration/integrations",
+        "collaboration/workspace-and-collaboration",
+        "collaboration/settings"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Roadmap",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "roadmap/q3-2024-roadmap",
+        "roadmap/release-notes"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/use-cases",
+        "guides/best-practices",
+        "guides/showcase"
       ]
     }
   ],
