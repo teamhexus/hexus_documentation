@@ -91,13 +91,6 @@
       ]
     },
     {
-      "group": "Roadmap",
-      "pages": [
-        "roadmap/q3-2024-roadmap",
-        "roadmap/release-notes"
-      ]
-    },
-    {
       "group": "Guides",
       "pages": [
         "guides/use-cases",
