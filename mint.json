@@ -78,7 +78,8 @@
         "advanced-editing/localization",
         "advanced-editing/editing-page-copy",
         "advanced-editing/showcase",
-        "advanced-editing/refresh"
+        "advanced-editing/refresh",
+        "advanced-editing/embedding-multiformat-filetypes"
       ]
     },
     {
