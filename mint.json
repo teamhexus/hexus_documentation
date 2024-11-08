@@ -97,6 +97,12 @@
         "guides/use-cases",
         "guides/best-practices"
       ]
+    },
+    {
+      "group": "Roadmap",
+      "pages": [
+        "roadmap/release-notes"
+      ]
     }
   ],
   "footerSocials": {
