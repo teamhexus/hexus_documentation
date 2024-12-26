@@ -81,7 +81,7 @@
         "advanced-editing/editing-page-copy",
         "advanced-editing/showcase",
         "advanced-editing/refresh",
-        "advanced-editing/embedding-multiformat-filetypes"
+        "advanced-editing/embedding-multiformat-filetypes",
         "advanced-editing/video-to-flow-conversion"
       ]
     },
@@ -111,5 +111,5 @@
   "footerSocials": {
     "x": "https://x.com/usehexus",
     "linkedin": "https://www.linkedin.com/company/hexusai"
-  }
+  },
 }
