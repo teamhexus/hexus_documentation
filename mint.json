@@ -64,9 +64,11 @@
       "pages": [
         "getting-started/hexus_resource_hub",
         "getting-started/extension",
+        "getting-started/add-password-and-email",
         "getting-started/editing-your-tour",
         "getting-started/repurposing",
         "getting-started/publishing-and-sharing",
+        "getting-started/add-content-format-on-showcase",
         "getting-started/hexus-hive",
         "getting-started/text-based-stories"
       ]
