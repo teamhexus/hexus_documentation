@@ -71,6 +71,9 @@
         "getting-started/add-content-format-on-showcase",
         "getting-started/hexus-hive",
         "getting-started/text-based-stories"
+        "getting-started/video-guide"
+        "getting-started/product-demo-video"
+        "getting-started/how-to-guides"
       ]
     },
     {
@@ -86,6 +89,7 @@
         "advanced-editing/embedding-multiformat-filetypes",
         "advanced-editing/video-to-flow-conversion"
         "advanced-editing/AI-Avatar"
+        "advanced-editing/AI-Voiceovers"
 
       ]
     },
