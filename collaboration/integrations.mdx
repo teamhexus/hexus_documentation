@@ -205,7 +205,7 @@ Here's how you can do it -
 - Just paste a Hexus Flow or Multiflow URL into your GitBook documentation and the integration will automatically render it as an interactive product demo
 - To configure, navigate to https://app.gitbook.com/integrations/hexusai and click the install button to get started. Choose the appropriate options in the installation flow to install Hexus in one or more spaces across your GitBook organization
 
-## Marketo 
+## Marketo
 
 Hexus provides seamless lead data integration with Marketo Engage using its REST APIs. It securely transfers new or updated lead information, leveraging the Sync Leads API for efficient, batch "upsert" operations that prevent duplicates. The integration is designed to respect Marketo's API limits and ensure reliable data delivery through robust error handling.
 
@@ -245,7 +245,7 @@ Please follow these instructions carefully:
 6. From the API Only User dropdown, select the "Hexus API User" you created in Step 2.
 7. Click Create.
 
-**Step 4: Obtain and Provide Credentials to Hexus** 
+**Step 4: Obtain and Provide Credentials to Hexus**
 
 Once the custom service is created:
 
@@ -296,7 +296,7 @@ For advanced analytics tracking, such as precise conversion rate measurement and
 
 **How it Works:** With your Measurement ID and API Secret, the Hexus backend will be able to send server-side events (e.g., initial page views for server-rendered pages, or conversion events completed on the server) directly to your Google Analytics 4 property. This ensures that your analytics data is comprehensive and accurately reflects user activity, even for events that originate outside the client's browser. We will ensure that these server-sent events are correctly attributed to user sessions by including necessary identifiers like client_id and session_id from user cookies.
 
-### **Event Details **
+### Event Details 
 
 Here’s a breakdown of the event names and parameters we plan to send.
 
@@ -307,7 +307,7 @@ Here’s a breakdown of the event names and parameters we plan to send.
 - **Steps Viewed:**
   - **Event Name:** step_viewed
   - **Parameters:** flow_name, step_number, page_location.
-  - **Mechanism:**Client-side tracking of events in browser, directly sent to your GA4 account
+  - **Mechanism**: Client-side tracking of events in browser, directly sent to your GA4 account
 - **Steps Clicked:**
   - **Event Name:** step_clicked
   - **Parameters:** flow_name, step_number, page_location.
