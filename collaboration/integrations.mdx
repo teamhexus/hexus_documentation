@@ -204,4 +204,111 @@ Here's how you can do it -
 
 - Just paste a Hexus Flow or Multiflow URL into your GitBook documentation and the integration will automatically render it as an interactive product demo
 - To configure, navigate to https://app.gitbook.com/integrations/hexusai and click the install button to get started. Choose the appropriate options in the installation flow to install Hexus in one or more spaces across your GitBook organization
-- 
+
+## Marketo 
+
+Hexus provides seamless lead data integration with Marketo Engage using its REST APIs. It securely transfers new or updated lead information, leveraging the Sync Leads API for efficient, batch "upsert" operations that prevent duplicates. The integration is designed to respect Marketo's API limits and ensure reliable data delivery through robust error handling.
+
+### How to integrate?
+
+To enable this integration, your Marketo administrator will need to perform a few one-time setup steps within your Marketo Engage account. These steps will grant Hexus the necessary permissions to interact with your Marketo Lead Database.
+
+Please follow these instructions carefully:
+
+**Step 1: Create an API-Only Role in Marketo**
+
+1. Log in to your Marketo Engage account as an Administrator.
+2. Navigate to Admin \> Users & Roles \> Roles.
+3. Click New Role.
+4. Give the role a descriptive name, such as "Hexus Integration Role".
+5. Under Permissions, expand Access API and ensure the "Access API" checkbox is selected.
+6. Crucially, under Lead Database, select at least the "Read-Write Lead" (or "Read-Write Person") permission. This grants Hexus the ability to create and update lead records.
+7. Click Create.
+
+**Step 2: Create an API-Only User in Marketo**
+
+1. Still in the Admin area, navigate to Users & Roles \> Users.
+2. Click Invite New User.
+3. Enter a descriptive Email Address, First Name (e.g., "Hexus"), and Last Name (e.g., "API User").
+4. Click Next.
+5. On the next screen, ensure the "API Only" checkbox is selected.
+6. From the list of roles, select the "Hexus Integration Role" you created in Step 1.
+7. Click Next, then Send to complete the user creation.
+
+**Step 3: Create a LaunchPoint Custom Service for Hexus**
+
+1. In the Admin area, navigate to Integration \> LaunchPoint.
+2. Click the New dropdown menu and select New Service.
+3. Provide a Display Name for the service (e.g., "Hexus Integration Service").
+4. For Service, select "Custom".
+5. Add a brief Description (e.g., "Integration for Hexus SaaS application").
+6. From the API Only User dropdown, select the "Hexus API User" you created in Step 2.
+7. Click Create.
+
+**Step 4: Obtain and Provide Credentials to Hexus** 
+
+Once the custom service is created:
+
+1. In the LaunchPoint list, find your newly created "Hexus Integration Service" and click View Details.
+2. Copy the Client ID and Client Secret displayed on this screen.
+3. Next, navigate to Admin \> Integration \> Web Services.
+4. Under the REST API section, locate and copy the Endpoint URL (this is your Marketo Identity URL).
+5. Enter the Client ID, Client Secret and Endpoint URL on the Hexus integrations page. Your dedicated Hexus account manager can enable the integration for you.
+
+## Google Analytics
+
+Hexus provides tracking for the following critical events across all Hexus flows:
+
+1. **Page Views:** Capturing when users view specific flows and product videos hosted  by Hexus.
+2. **Steps Viewed:** Tracking when users navigate to and view individual steps within a Hexus flow.
+3. **Steps Clicked:** Recording user interactions such as clicks in a Hexus flow.
+
+These events will be structured to provide meaningful data within your Google Analytics 4 property, allowing for detailed analysis of user engagement and progression through your product.
+
+### **Integration Setup: Enabling Your Google Analytics Tracking**
+
+To activate this integration, Hexus requires specific configuration details from your Google Analytics 4 property.
+
+#### **1. Providing Your Google Analytics Measurement ID (Basic Tracking)**
+
+For fundamental client-side tracking of Page Views, Steps Viewed, and Steps Clicked, you will need to provide your Google Analytics 4 Measurement ID. This ID directs all client-side events from Hexus to your specific GA4 property.
+
+**Action Required:** Please provide your Google Analytics 4 Measurement ID on the Integrations page within the Hexus app at the following link: https://app.usehexus.com/integrations
+
+**How it Works:** Once your Measurement ID is configured, the Hexus application will dynamically initialize its client-side analytics to send these events directly to your designated Google Analytics 4 property. This ensures that all browser-based interactions are captured and attributed to your GA4 (Google Analytics) account.
+
+#### **2. Providing Your Google Analytics Measurement Protocol API Secret (Advanced Tracking)**
+
+For advanced analytics tracking, such as precise conversion rate measurement and reliable capture of initial page views from server-side rendered pages, we will utilize the Google Analytics 4 Measurement Protocol. This server-to-server communication method offers enhanced accuracy and resilience against client-side limitations like ad-blockers. To enable this, you must provide an API Secret from your Google Analytics 4 property.
+
+**Action Required:** Please generate an API Secret within your Google Analytics 4 property and provide it to us.
+
+**Instructions to Obtain Your API Secret:**
+
+1. Log in to your Google Analytics 4 account.
+2. Navigate to the Admin section (usually found in the bottom-left corner).
+3. In the "Property" column, click on Data Streams.
+4. Select the relevant Web data stream for your Hexus integration.
+5. Under the "Google tag" section, find and click on Measurement Protocol API secrets.
+6. Click the "Create" button to generate a new API secret.
+7. Copy the generated API Secret string.
+8. Enter this API Secret in the Hexus integrations page. Your dedicated Hexus account manager can enable the integration for you.
+
+**How it Works:** With your Measurement ID and API Secret, the Hexus backend will be able to send server-side events (e.g., initial page views for server-rendered pages, or conversion events completed on the server) directly to your Google Analytics 4 property. This ensures that your analytics data is comprehensive and accurately reflects user activity, even for events that originate outside the client's browser. We will ensure that these server-sent events are correctly attributed to user sessions by including necessary identifiers like client_id and session_id from user cookies.
+
+### **Event Details **
+
+Here’s a breakdown of the event names and parameters we plan to send.
+
+- **Page Views:**
+  - **Event Name:** page_view
+  - **Parameters:** page_location (full URL), page_title (page title), client_id, session_id, engagement_time_msec (for server-side).
+  - **Mechanism:** Initial page views on server-rendered pages will be sent via GA4 Measurement Protocol. Subsequent client-side navigations will be tracked via [getanalytics.io](http://getanalytics.io).
+- **Steps Viewed:**
+  - **Event Name:** step_viewed
+  - **Parameters:** flow_name, step_number, page_location.
+  - **Mechanism:**Client-side tracking of events in browser, directly sent to your GA4 account
+- **Steps Clicked:**
+  - **Event Name:** step_clicked
+  - **Parameters:** flow_name, step_number, page_location.
+  - **Mechanism:** Client-side tracking of events in browser, directly sent to your GA4 account
