@@ -303,12 +303,71 @@ Here’s a breakdown of the event names and parameters we plan to send.
 - **Page Views:**
   - **Event Name:** page_view
   - **Parameters:** page_location (full URL), page_title (page title), client_id, session_id, engagement_time_msec (for server-side).
-  - **Mechanism:** Initial page views on server-rendered pages will be sent via GA4 Measurement Protocol. Subsequent client-side navigations will be tracked via [getanalytics.io](http://getanalytics.io).
+  - **Mechanism:** Client-side tracking of page views in browser, directly sent to your GA4 account
+  - **Sample Page View Event JSON**:
+  ```JSON
+  {
+    "event": "page_view",
+    "anonymize_ip": false,
+    "page_hash": "",
+    "event_timing_ms": 2,
+    "page_path": "/flow/unique-hexus-flow-id",
+    "enhanced_event": true
+  }
+  ```
+
 - **Steps Viewed:**
   - **Event Name:** step_viewed
   - **Parameters:** flow_name, step_number, page_location.
-  - **Mechanism**: Client-side tracking of events in browser, directly sent to your GA4 account
+  - **Mechanism**: Client-side tracking of step views in browser, directly sent to your GA4 account
+  - **Sample Step Viewed Event JSON**:
+  ```JSON
+  {
+    "event": "stepViewed",
+    "anonymize_ip": false,
+    "flow_id": "unique-hexus-flow-id",
+    "flow_type": "FLOW",
+    "subflow_id": "",
+    "os": "Operating System name",
+    "browser": "Web browser",
+    "device_type": "Mobile, Desktop, etc.",
+    "location": "Browsing location",
+    "creator_id": "unique id of the creator of flow",
+    "title": "Title of your Hexus flow",
+    "workspace": "workspace where the flow is hosted",
+    "stepNumber": 1,
+    "category": "DEMO",
+    "totalSteps": 12,
+    "wl_href": "referrer link",
+    "event_timing_ms": 108,
+    "enhanced_event": true
+  }
+  ```
+
 - **Steps Clicked:**
   - **Event Name:** step_clicked
   - **Parameters:** flow_name, step_number, page_location.
-  - **Mechanism:** Client-side tracking of events in browser, directly sent to your GA4 account
+  - **Mechanism:** Client-side tracking of step clicks (interactions) in browser, directly sent to your GA4 account
+  - **Sample Step Clicked Event JSON**:
+  ```JSON
+  {
+    "event": "stepClicked",
+    "anonymize_ip": false,
+    "flow_id": "unique-hexus-flow-id",
+    "flow_type": "FLOW",
+    "subflow_id": "",
+    "os": "Operating System name",
+    "browser": "Web browser",
+    "device_type": "Mobile, Desktop, etc.",
+    "location": "Browsing location",
+    "creator_id": "unique id of the creator of flow",
+    "title": "Title of your Hexus flow",
+    "workspace": "workspace where the flow is hosted",
+    "stepNumber": 1,
+    "category": "DEMO",
+    "totalSteps": 12,
+    "wl_href": "referrer link",
+    "event_timing_ms": 108,
+    "enhanced_event": true
+  }
+  ```
