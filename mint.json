@@ -106,6 +106,16 @@
             ]
         },
         {
+             "group": "Integrations",
+              "pages": [
+                "integrations/crm",
+                "integrations/embeds",
+                "integrations/analytics",
+                "integrations/video-exports",
+                "integrations/workflows"
+            ]
+    },
+        {
             "group": "Guides",
             "pages": [
                 "guides/use-cases",
