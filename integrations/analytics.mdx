@@ -1,0 +1,126 @@
+---
+title: "Integrate Google Analytics with Hexus"
+description: "Integrate Google Analytics with Hexus to gain deep insights into user behavior and campaign performance."
+---
+
+## Google Analytics
+
+Hexus provides tracking for the following critical events across all Hexus flows:
+
+1. **Page Views:** Capturing when users view specific flows and product videos hosted  by Hexus.
+2. **Steps Viewed:** Tracking when users navigate to and view individual steps within a Hexus flow.
+3. **Steps Clicked:** Recording user interactions such as clicks in a Hexus flow.
+
+These events will be structured to provide meaningful data within your Google Analytics 4 property, allowing for detailed analysis of user engagement and progression through your product.
+
+### **Integration Setup: Enabling Your Google Analytics Tracking**
+
+To activate this integration, Hexus requires specific configuration details from your Google Analytics 4 property.
+
+#### **1. Providing Your Google Analytics Measurement ID (Basic Tracking)**
+
+For fundamental client-side tracking of Page Views, Steps Viewed, and Steps Clicked, you will need to provide your Google Analytics 4 Measurement ID. This ID directs all client-side events from Hexus to your specific GA4 property.
+
+**Action Required:** Please provide your Google Analytics 4 Measurement ID on the Integrations page within the Hexus app at the following link: https://app.usehexus.com/integrations
+
+**How it Works:** Once your Measurement ID is configured, the Hexus application will dynamically initialize its client-side analytics to send these events directly to your designated Google Analytics 4 property. This ensures that all browser-based interactions are captured and attributed to your GA4 (Google Analytics) account.
+
+#### **2. Providing Your Google Analytics Measurement Protocol API Secret (Advanced Tracking)**
+
+For advanced analytics tracking, such as precise conversion rate measurement and reliable capture of initial page views from server-side rendered pages, we will utilize the Google Analytics 4 Measurement Protocol. This server-to-server communication method offers enhanced accuracy and resilience against client-side limitations like ad-blockers. To enable this, you must provide an API Secret from your Google Analytics 4 property.
+
+**Action Required:** Please generate an API Secret within your Google Analytics 4 property and provide it to us.
+
+**Instructions to Obtain Your API Secret:**
+
+1. Log in to your Google Analytics 4 account.
+2. Navigate to the Admin section (usually found in the bottom-left corner).
+3. In the "Property" column, click on Data Streams.
+4. Select the relevant Web data stream for your Hexus integration.
+5. Under the "Google tag" section, find and click on Measurement Protocol API secrets.
+6. Click the "Create" button to generate a new API secret.
+7. Copy the generated API Secret string.
+8. Enter this API Secret in the Hexus integrations page. Your dedicated Hexus account manager can enable the integration for you.
+
+**How it Works:** With your Measurement ID and API Secret, the Hexus backend will be able to send server-side events (e.g., initial page views for server-rendered pages, or conversion events completed on the server) directly to your Google Analytics 4 property. This ensures that your analytics data is comprehensive and accurately reflects user activity, even for events that originate outside the client's browser. We will ensure that these server-sent events are correctly attributed to user sessions by including necessary identifiers like client_id and session_id from user cookies.
+
+### Event Details 
+
+Here’s a breakdown of the event names and parameters we plan to send.
+
+- **Page Views:**
+  - **Event Name:** page_view
+  - **Parameters:** page_location (full URL), page_title (page title), client_id, session_id, engagement_time_msec (for server-side).
+  - **Mechanism:** Initial page views on server-rendered pages will be sent via GA4 Measurement Protocol. Subsequent client-side navigations will be tracked via [getanalytics.io](http://getanalytics.io).
+  - **Sample Payload:**
+
+```
+{
+  "event": "page_view",
+  "anonymize_ip": false,
+  "page_hash": "",
+  "event_timing_ms": 2,
+  "page_path": "/flow/unique-hexus-flow-id",
+  "enhanced_event": true
+}
+```
+
+- **Steps Viewed:**
+  - **Event Name:** step_viewed
+  - **Parameters:** flow_name, step_number, page_location.
+  - **Mechanism**: Client-side tracking of events in browser, directly sent to your GA4 account
+  - **Sample Payload:**
+
+```
+{
+  "event": "stepViewed",
+  "anonymize_ip": false,
+  "flow_id": "unique-hexus-flow-id",
+  "flow_type": "FLOW",
+  "subflow_id": "",
+  "os": "Operating System name",
+  "browser": "Web browser",
+  "device_type": "Mobile, Desktop, etc.",
+  "location": "Browsing location",
+  "creator_id": "unique id of the creator of flow",
+  "title": "Title of your Hexus flow",
+  "workspace": "workspace where the flow is hosted",
+  "stepNumber": 1,
+  "category": "DEMO",
+  "totalSteps": 12,
+  "wl_href": "referrer link",
+  "event_timing_ms": 108,
+  "enhanced_event": true
+}
+```
+
+- **Steps Clicked:**
+  - **Event Name:** step_clicked
+  - **Parameters:** flow_name, step_number, page_location.
+  - **Mechanism:** Client-side tracking of events in browser, directly sent to your GA4 account
+- **Sample Payload:**
+
+  ```
+  {
+    "event": "stepClicked",
+    "anonymize_ip": false,
+    "flow_id": "unique-hexus-flow-id",
+    "flow_type": "FLOW",
+    "subflow_id": "",
+    "os": "Operating System name",
+    "browser": "Web browser",
+    "device_type": "Mobile, Desktop, etc.",
+    "location": "Browsing location",
+    "creator_id": "unique id of the creator of flow",
+    "title": "Title of your Hexus flow",
+    "workspace": "workspace where the flow is hosted",
+    "stepNumber": 1,
+    "category": "DEMO",
+    "totalSteps": 12,
+    "wl_href": "referrer link",
+    "event_timing_ms": 108,
+    "enhanced_event": true
+  }
+  ```
+
+   

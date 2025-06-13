@@ -5,7 +5,9 @@ icon: "plug"
 iconType: "solid"
 ---
 
-## Slack
+## Workflows
+
+### Slack
 
 Connecting to Slack sends a notification every time someone submits a form on a Hexus product tour. To set up the notifications:
 
@@ -14,24 +16,56 @@ Connecting to Slack sends a notification every time someone submits a form on a 
 
 </div>
 
-### a. Workflows
+a. Workflows
 
 Contact us at [team@hexus.ai](mailto:team@hexus.ai) to enable any other notifications.  e.g:
 
 1. Notify when your team member creates a new flow
 2. Get a daily summary of the most popular flows
 
-## HubSpot
+### Zapier
+
+Hexus directly integrates with Zapier, allowing leads captured from your demo to be sent to any third-party app.
+
+### a. How to integrate
+
+1. Click on "Integrations" in the left-hand menu of your Hexus account.
+2. Choose the Zapier integration and click on the "Connect" button.
+3. You will be provided with an API key, which is only displayed once. Make sure to copy this key, as you will need it to connect the Hexus app within Zapier.
+4. In your Zapier account, create a new Zap and select Hexus as the trigger app. When prompted, paste the API key you copied from Hexus to establish the connection.
+
+<div style={{ position:"relative",width:"100%",paddingTop:"53.5%" }}>
+<iframe src="https://app.usehexus.com/embed/965ca096-9bf4-4353-b705-dd0f1c2722ca" title="Hexus Zapier Integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style={{ position:"absolute",top:0,left:0,width:"100%",height:"100%" }} />
+
+</div>
+
+### b. Additional Workflows
+
+- Notify your team members when a new flow is created
+- Receive a daily summary of the most popular flows
+- Pass additional data from Hexus to Zapier
+
+If you would like to enable any of these optional workflows or have any further questions, please contact our support team for assistance.
+
+### c. Sample response
+
+| Form Details Email                    | Form Details Description | Hexus URL                                     | Email                                 | Creation Timestamp       |
+| :------------------------------------ | :----------------------- | :-------------------------------------------- | :------------------------------------ | :----------------------- |
+| [test@test.com](mailto:test@test.com) | John Doe                 | https://app.usehexus.com/flow/rich-hexus-tour | [test@test.com](mailto:test@test.com) | 2024-03-17T23:40:17.664Z |
+
+## CRM Integrations
+
+### HubSpot
 
 Hexus enables seamless integration with HubSpot to optimize lead capture and management from interactive product tours. By connecting your Hexus account with your HubSpot portal, you can automatically capture and manage leads generated from Hexus tours.
 
-### a. How to integrate
+**a. How to integrate**
 
 Connect to HubSpot through the integrations page and grant the required permissions. Once integration is complete, check if new Hexus property (Hexus URL) is created.
 
 Contact us at [team@hexus.ai](mailto:team@hexus.ai) for any other properties.
 
-### b. Workflows
+**b. Workflows**
 
 1. **Lead Capture:** Hexus automatically creates a contact in HubSpot whenever a lead fills a Hexus form. Remove any filters from your contacts table to view the newly created contacts. Learn more on how to add a form [here](https://support.hexus.ai/advanced-editing/lead-capture-form).
 
@@ -60,35 +94,55 @@ Contact us at [team@hexus.ai](mailto:team@hexus.ai) for any other properties.
 
 Contact us at [team@hexus.ai](mailto:team@hexus.ai) to enable any other workflows. e.g: Activity tracking.
 
-## Zapier
+### Marketo
 
-Hexus directly integrates with Zapier, allowing leads captured from your demo to be sent to any third-party app.
+Hexus provides seamless lead data integration with Marketo Engage using its REST APIs. It securely transfers new or updated lead information, leveraging the Sync Leads API for efficient, batch "upsert" operations that prevent duplicates. The integration is designed to respect Marketo's API limits and ensure reliable data delivery through robust error handling.
 
-### a. How to integrate
+**How to integrate?**
 
-1. Click on "Integrations" in the left-hand menu of your Hexus account.
-2. Choose the Zapier integration and click on the "Connect" button.
-3. You will be provided with an API key, which is only displayed once. Make sure to copy this key, as you will need it to connect the Hexus app within Zapier.
-4. In your Zapier account, create a new Zap and select Hexus as the trigger app. When prompted, paste the API key you copied from Hexus to establish the connection.
+To enable this integration, your Marketo administrator will need to perform a few one-time setup steps within your Marketo Engage account. These steps will grant Hexus the necessary permissions to interact with your Marketo Lead Database.
 
-<div style={{ position:"relative",width:"100%",paddingTop:"53.5%" }}>
-<iframe src="https://app.usehexus.com/embed/965ca096-9bf4-4353-b705-dd0f1c2722ca" title="Hexus Zapier Integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style={{ position:"absolute",top:0,left:0,width:"100%",height:"100%" }} />
+Please follow these instructions carefully:
 
-</div>
+**Step 1: Create an API-Only Role in Marketo**
 
-### b. Additional Workflows
+1. Log in to your Marketo Engage account as an Administrator.
+2. Navigate to Admin \> Users & Roles \> Roles.
+3. Click New Role.
+4. Give the role a descriptive name, such as "Hexus Integration Role".
+5. Under Permissions, expand Access API and ensure the "Access API" checkbox is selected.
+6. Crucially, under Lead Database, select at least the "Read-Write Lead" (or "Read-Write Person") permission. This grants Hexus the ability to create and update lead records.
+7. Click Create.
 
-- Notify your team members when a new flow is created
-- Receive a daily summary of the most popular flows
-- Pass additional data from Hexus to Zapier
+**Step 2: Create an API-Only User in Marketo**
 
-If you would like to enable any of these optional workflows or have any further questions, please contact our support team for assistance.
+1. Still in the Admin area, navigate to Users & Roles \> Users.
+2. Click Invite New User.
+3. Enter a descriptive Email Address, First Name (e.g., "Hexus"), and Last Name (e.g., "API User").
+4. Click Next.
+5. On the next screen, ensure the "API Only" checkbox is selected.
+6. From the list of roles, select the "Hexus Integration Role" you created in Step 1.
+7. Click Next, then Send to complete the user creation.
 
-### c. Sample response
+**Step 3: Create a LaunchPoint Custom Service for Hexus**
 
-| Form Details Email                    | Form Details Description | Hexus URL                                     | Email                                 | Creation Timestamp       |
-| ------------------------------------- | ------------------------ | --------------------------------------------- | ------------------------------------- | ------------------------ |
-| [test@test.com](mailto:test@test.com) | John Doe                 | https://app.usehexus.com/flow/rich-hexus-tour | [test@test.com](mailto:test@test.com) | 2024-03-17T23:40:17.664Z |
+1. In the Admin area, navigate to Integration \> LaunchPoint.
+2. Click the New dropdown menu and select New Service.
+3. Provide a Display Name for the service (e.g., "Hexus Integration Service").
+4. For Service, select "Custom".
+5. Add a brief Description (e.g., "Integration for Hexus SaaS application").
+6. From the API Only User dropdown, select the "Hexus API User" you created in Step 2.
+7. Click Create.
+
+**Step 4: Obtain and Provide Credentials to Hexus**
+
+Once the custom service is created:
+
+1. In the LaunchPoint list, find your newly created "Hexus Integration Service" and click View Details.
+2. Copy the Client ID and Client Secret displayed on this screen.
+3. Next, navigate to Admin \> Integration \> Web Services.
+4. Under the REST API section, locate and copy the Endpoint URL (this is your Marketo Identity URL).
+5. Enter the Client ID, Client Secret and Endpoint URL on the Hexus integrations page. Your dedicated Hexus account manager can enable the integration for you.
 
 ## Wistia
 
@@ -205,55 +259,7 @@ Here's how you can do it -
 - Just paste a Hexus Flow or Multiflow URL into your GitBook documentation and the integration will automatically render it as an interactive product demo
 - To configure, navigate to https://app.gitbook.com/integrations/hexusai and click the install button to get started. Choose the appropriate options in the installation flow to install Hexus in one or more spaces across your GitBook organization
 
-## Marketo
-
-Hexus provides seamless lead data integration with Marketo Engage using its REST APIs. It securely transfers new or updated lead information, leveraging the Sync Leads API for efficient, batch "upsert" operations that prevent duplicates. The integration is designed to respect Marketo's API limits and ensure reliable data delivery through robust error handling.
-
-### How to integrate?
-
-To enable this integration, your Marketo administrator will need to perform a few one-time setup steps within your Marketo Engage account. These steps will grant Hexus the necessary permissions to interact with your Marketo Lead Database.
-
-Please follow these instructions carefully:
-
-**Step 1: Create an API-Only Role in Marketo**
-
-1. Log in to your Marketo Engage account as an Administrator.
-2. Navigate to Admin \> Users & Roles \> Roles.
-3. Click New Role.
-4. Give the role a descriptive name, such as "Hexus Integration Role".
-5. Under Permissions, expand Access API and ensure the "Access API" checkbox is selected.
-6. Crucially, under Lead Database, select at least the "Read-Write Lead" (or "Read-Write Person") permission. This grants Hexus the ability to create and update lead records.
-7. Click Create.
-
-**Step 2: Create an API-Only User in Marketo**
-
-1. Still in the Admin area, navigate to Users & Roles \> Users.
-2. Click Invite New User.
-3. Enter a descriptive Email Address, First Name (e.g., "Hexus"), and Last Name (e.g., "API User").
-4. Click Next.
-5. On the next screen, ensure the "API Only" checkbox is selected.
-6. From the list of roles, select the "Hexus Integration Role" you created in Step 1.
-7. Click Next, then Send to complete the user creation.
-
-**Step 3: Create a LaunchPoint Custom Service for Hexus**
-
-1. In the Admin area, navigate to Integration \> LaunchPoint.
-2. Click the New dropdown menu and select New Service.
-3. Provide a Display Name for the service (e.g., "Hexus Integration Service").
-4. For Service, select "Custom".
-5. Add a brief Description (e.g., "Integration for Hexus SaaS application").
-6. From the API Only User dropdown, select the "Hexus API User" you created in Step 2.
-7. Click Create.
-
-**Step 4: Obtain and Provide Credentials to Hexus**
-
-Once the custom service is created:
-
-1. In the LaunchPoint list, find your newly created "Hexus Integration Service" and click View Details.
-2. Copy the Client ID and Client Secret displayed on this screen.
-3. Next, navigate to Admin \> Integration \> Web Services.
-4. Under the REST API section, locate and copy the Endpoint URL (this is your Marketo Identity URL).
-5. Enter the Client ID, Client Secret and Endpoint URL on the Hexus integrations page. Your dedicated Hexus account manager can enable the integration for you.
+## 
 
 ## Google Analytics
 
