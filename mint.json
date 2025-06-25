@@ -80,6 +80,16 @@
             ]
         },
         {
+            "group": "Templates",
+            "pages": [
+                "templates/interactive-demo",
+                "templates/how-to-guides",
+                "templates/product-demo-video",
+                "templates/settings-based-stories",
+                "templates/video-guide"
+            ]
+        },
+        {
             "group": "Advanced Editing",
             "pages": [
                 "advanced-editing/multi-flow-product-tour",
