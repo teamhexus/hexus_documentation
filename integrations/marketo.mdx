@@ -1,0 +1,52 @@
+---
+title: "Marketo"
+description: "Hexus provides seamless lead data integration with Marketo"
+---
+
+Hexus provides seamless lead data integration with Marketo Engage using its REST APIs. It securely transfers new or updated lead information, leveraging the Sync Leads API for efficient, batch "upsert" operations that prevent duplicates. The integration is designed to respect Marketo's API limits and ensure reliable data delivery through robust error handling.
+
+### **How to integrate?**
+
+To enable this integration, your Marketo administrator will need to perform a few one-time setup steps within your Marketo Engage account. These steps will grant Hexus the necessary permissions to interact with your Marketo Lead Database.
+
+Please follow these instructions carefully:
+
+**Step 1: Create an API-Only Role in Marketo**
+
+1. Log in to your Marketo Engage account as an Administrator.
+2. Navigate to Admin \> Users & Roles \> Roles.
+3. Click New Role.
+4. Give the role a descriptive name, such as "Hexus Integration Role".
+5. Under Permissions, expand Access API and ensure the "Access API" checkbox is selected.
+6. Crucially, under Lead Database, select at least the "Read-Write Lead" (or "Read-Write Person") permission. This grants Hexus the ability to create and update lead records.
+7. Click Create.
+
+**Step 2: Create an API-Only User in Marketo**
+
+1. Still in the Admin area, navigate to Users & Roles \> Users.
+2. Click Invite New User.
+3. Enter a descriptive Email Address, First Name (e.g., "Hexus"), and Last Name (e.g., "API User").
+4. Click Next.
+5. On the next screen, ensure the "API Only" checkbox is selected.
+6. From the list of roles, select the "Hexus Integration Role" you created in Step 1.
+7. Click Next, then Send to complete the user creation.
+
+**Step 3: Create a LaunchPoint Custom Service for Hexus**
+
+1. In the Admin area, navigate to Integration \> LaunchPoint.
+2. Click the New dropdown menu and select New Service.
+3. Provide a Display Name for the service (e.g., "Hexus Integration Service").
+4. For Service, select "Custom".
+5. Add a brief Description (e.g., "Integration for Hexus SaaS application").
+6. From the API Only User dropdown, select the "Hexus API User" you created in Step 2.
+7. Click Create.
+
+**Step 4: Obtain and Provide Credentials to Hexus**
+
+Once the custom service is created:
+
+1. In the LaunchPoint list, find your newly created "Hexus Integration Service" and click View Details.
+2. Copy the Client ID and Client Secret displayed on this screen.
+3. Next, navigate to Admin \> Integration \> Web Services.
+4. Under the REST API section, locate and copy the Endpoint URL (this is your Marketo Identity URL).
+5. Enter the Client ID, Client Secret and Endpoint URL on the Hexus integrations page. Your dedicated Hexus account manager can enable the integration for you.
