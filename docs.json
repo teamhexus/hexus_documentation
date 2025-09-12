@@ -56,7 +56,8 @@
               "advanced-editing/video-to-flow-conversion",
               "advanced-editing/AI-Avatar",
               "advanced-editing/AI-Voiceovers",
-              "advanced-editing/find-replace-images"
+              "advanced-editing/find-replace-images",
+              "advanced-editing/using-regular-expressions"
             ]
           },
           {
