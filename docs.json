@@ -1,0 +1,160 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Hexus AI",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373"
+  },
+  "favicon": "/hexus_favicon.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "getting-started/hexus_resource_hub",
+              "getting-started/extension",
+              "getting-started/add-password-and-email",
+              "getting-started/create-from-scratch",
+              "getting-started/video-recording-mode",
+              "getting-started/content-editor-management-tool",
+              "getting-started/import-loom-video",
+              "getting-started/editing-your-tour",
+              "getting-started/repurposing",
+              "getting-started/publishing-and-sharing",
+              "getting-started/add-content-format-on-showcase",
+              "getting-started/hexus-ai-studio"
+            ]
+          },
+          {
+            "group": "Templates",
+            "pages": [
+              "templates/interactive-demo",
+              "templates/how-to-guides",
+              "templates/product-demo-video",
+              "templates/text-based-stories",
+              "templates/video-guide"
+            ]
+          },
+          {
+            "group": "Advanced Editing",
+            "pages": [
+              "advanced-editing/multi-flow-product-tour",
+              "advanced-editing/lead-capture-form",
+              "advanced-editing/personalization",
+              "advanced-editing/localization",
+              "advanced-editing/editing-page-copy",
+              "advanced-editing/record-your-chrome-extension",
+              "advanced-editing/pronunciation-dictionary",
+              "advanced-editing/showcase",
+              "advanced-editing/refresh",
+              "advanced-editing/embedding-multiformat-filetypes",
+              "advanced-editing/video-to-flow-conversion",
+              "advanced-editing/AI-Avatar",
+              "advanced-editing/AI-Voiceovers"
+            ]
+          },
+          {
+            "group": "Collaboration",
+            "pages": [
+              "collaboration/analytics-and-reporting",
+              "collaboration/collaboration-and-organization",
+              "collaboration/customization"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/analytics",
+              "integrations/gitbook",
+              "integrations/google-drive",
+              "integrations/google-workspace",
+              "integrations/hubspot",
+              "integrations/intercom",
+              "integrations/marketo",
+              "integrations/salesforce",
+              "integrations/slack",
+              "integrations/wistia",
+              "integrations/youtube",
+              "integrations/zapier"
+            ]
+          },
+          {
+            "group": "Roadmap",
+            "pages": [
+              "roadmap/release-notes"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/use-cases",
+              "guides/best-practices"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Community",
+          "href": "https://hexusinsiders.slack.com/join/signup#/domain-signup",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Showcase",
+          "href": "https://www.hexus.ai/showcase",
+          "icon": "film"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://www.hexus.ai/blog",
+          "icon": "newspaper"
+        },
+        {
+          "anchor": "Podcasts and Webinars",
+          "href": "https://www.hexus.ai/events-and-webinars",
+          "icon": "podcast"
+        },
+        {
+          "anchor": "Feature Requests and Feedback",
+          "href": "https://hexus.canny.io/",
+          "icon": "comment"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/hexus_logo_light.png",
+    "dark": "/logo/Hexus_logo_dark.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:team@hexus.ai"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Use Hexus",
+      "href": "https://app.usehexus.com/"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/usehexus",
+      "linkedin": "https://www.linkedin.com/company/hexusai"
+    }
+  }
+}
