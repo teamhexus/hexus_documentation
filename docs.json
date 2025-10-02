@@ -85,7 +85,8 @@
               "integrations/slack",
               "integrations/wistia",
               "integrations/youtube",
-              "integrations/zapier"
+              "integrations/zapier",
+              "integrations/apollo"
             ]
           },
           {
