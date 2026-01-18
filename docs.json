@@ -164,7 +164,7 @@
     }
   },
   "banner": {
-    "content": "🚨 **Important Announcement:** Hexus is joining Harvey AI. Services will continue until April 20, 2026. [Read more](/support/service-announcement) about the transition and data migration options.",
+    "content": "🚨 **Important Announcement:** Hexus is joining Harvey AI. Services will continue until April 20, 2026. [Read more about the transition and next steps](/support/service-announcement)",
     "dismissible": false
   }
 }
