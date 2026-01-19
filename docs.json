@@ -7,8 +7,13 @@
     "light": "#07C983",
     "dark": "#0D9373"
   },
+  
   "favicon": "/hexus_favicon.png",
   "navigation": {
+    "banner": {
+          "content": "🚀 Hexus has been acquired by Harvey AI. Read the full announcement here. Your account and data remain accessible until September 2026. For questions about the transition, contact support@usehexus.com",
+          "dismissible": true
+        },
     "tabs": [
       {
         "tab": "Documentation",
